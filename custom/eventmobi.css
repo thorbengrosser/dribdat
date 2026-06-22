@@ -43,7 +43,7 @@
 
   --em-border:var(--em-grey-100);
   --em-border-strong:var(--em-grey-200);
-  --em-radius:10px; --em-radius-pill:999px;
+  --em-radius:10px; --em-radius-lg:14px; --em-radius-pill:999px;
   --em-shadow-sm:0 2px 4px rgba(20,25,29,.06),0 1px 2px rgba(20,25,29,.04);
   --em-shadow-md:0 6px 16px rgba(20,25,29,.08),0 2px 4px rgba(20,25,29,.04);
   --em-ease:cubic-bezier(.2,.0,0,1);
@@ -219,15 +219,15 @@ footer#footer a.darkmode { color:var(--em-grey-200); }
   box-shadow:0 4px 9px rgb(20 25 29 / 10%), 0 9px 26px rgb(20 25 29 / 12%) !important;
 }
 
-/* Challenge tiles (white + blue dashed by default) -> grey-50 + gold dashed */
+/* Challenge tiles (white + blue dashed by default) -> warm gold-tinted */
 .challenge.hexagon,
 .challenge.hexagon::before,
 .challenge.hexagon::after {
-  background-color:var(--em-grey-50) !important;
-  border-top:1px dashed var(--em-gold) !important;
-  border-bottom:1px dashed var(--em-gold) !important;
+  background-color:var(--em-gold-50) !important;
+  border-top:1px dashed var(--em-gold-300) !important;
+  border-bottom:1px dashed var(--em-gold-300) !important;
 }
-.challenge.hexagon .hexagontent { color:var(--em-grey-600) !important; }
+.challenge.hexagon .hexagontent { color:var(--em-grey-700) !important; font-weight:700; }
 .hexagon.challenge.new .hexagontent i { color:var(--em-gold) !important; }
 
 /* ---------------------------------------------------------------------------
@@ -278,6 +278,54 @@ label, .form-label { font-weight:700; color:var(--em-grey-600); }
 
 /* Login / enter screen lives in a .card by default — covered above. */
 
+/* Category filter pills resting + hover (active = grey, set above) */
+.nav-categories .btn-group label.btn { background:#fff; border:1px solid var(--em-border-strong); color:var(--em-grey-600); }
+.nav-categories .btn-group label.btn:hover { background:var(--em-gold-50); border-color:var(--em-gold-300); }
+
+/* ---------------------------------------------------------------------------
+   8b. PROJECT DETAIL PAGE + TABS + COUNTDOWN
+   --------------------------------------------------------------------------- */
+/* The big Bootswatch .jumbotron.project-page becomes a clean white card.
+   (dribdat puts the project's logo_color on an inline border-color; our
+   !important border keeps the chrome calm — the colour still tints links/icons.) */
+.jumbotron.project-page {
+  background:#fff !important;
+  color:var(--em-grey-700);
+  border:1px solid var(--em-border) !important;
+  border-radius:var(--em-radius-lg);
+  box-shadow:var(--em-shadow-sm);
+  padding:32px 36px;
+}
+.jumbotron.project-page h1, .jumbotron.project-page h2 { color:var(--em-grey-600); }
+.project-longtext, .project-autotext { color:var(--em-grey-700); }
+
+/* aftersubmit / boilerplate alert */
+.jumbotron.projectnew-boilerplate {
+  background:var(--em-gold-50); border:1px solid var(--em-gold-100); border-radius:var(--em-radius-lg);
+}
+
+/* Tabs (project content, challenge view) */
+.nav-tabs { border-bottom:1px solid var(--em-border); }
+.nav-tabs .nav-link { color:var(--em-grey-500); font-weight:700; border:0; }
+.nav-tabs .nav-link:hover { color:var(--em-grey-700); }
+.nav-tabs .nav-link.active {
+  color:var(--em-grey-700); background:transparent; border:0;
+  border-bottom:2px solid var(--em-gold);
+}
+
+/* Flipdown countdown — retheme from pure black to brand grey */
+.flipdown.flipdown__theme-dark .rotor,
+.flipdown.flipdown__theme-dark .rotor-top,
+.flipdown.flipdown__theme-dark .rotor-bottom,
+.flipdown.flipdown__theme-dark .rotor-leaf-front,
+.flipdown.flipdown__theme-dark .rotor-leaf-rear,
+.flipdown .rotor, .flipdown .rotor-top, .flipdown .rotor-bottom,
+.flipdown .rotor-leaf-front, .flipdown .rotor-leaf-rear {
+  background-color:var(--em-grey-700) !important;
+  color:#fff !important;
+}
+.flipdown .rotor-group-heading:before { color:var(--em-grey-400) !important; }
+
 /* ---------------------------------------------------------------------------
    9. DARK MODE   (body.theme-dark  /  html[data-bs-theme="dark"])
    Bootswatch + Bootstrap 5.3 handle base bg/text via data-bs-theme; here we
@@ -322,6 +370,9 @@ body.theme-dark .hexagon .hexagontent { text-shadow:1px 1px 1px rgba(0,0,0,.4); 
 /* Gold buttons + orange links unchanged in dark (brand recognition). */
 body.theme-dark a { color:var(--em-orange); }
 body.theme-dark a:hover { color:var(--em-gold); }
+body.theme-dark .jumbotron.project-page { background:var(--em-grey-800) !important; border-color:var(--em-grey-700) !important; color:var(--em-grey-100); }
+body.theme-dark .nav-tabs { border-bottom-color:var(--em-grey-700); }
+body.theme-dark .nav-tabs .nav-link.active { color:var(--em-grey-50); }
 
 /* ============================================================================
    NOTES FOR CLAUDE CODE / DEPLOYMENT
