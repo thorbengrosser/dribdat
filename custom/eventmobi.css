@@ -5,10 +5,10 @@
    Gold + Grey primary, Orange accent, Lato throughout.
 
    WHERE TO PUT IT
-     • Whole instance : set env  DRIBDAT_STYLE = <url to this file>
-                        (layout.html injects it as the last stylesheet)
-     • One event      : paste into the event's "Custom CSS" field
-                        (rendered into <style id="custom_css">)
+     • Whole instance : set env  DRIBDAT_STYLE = (public URL of this file)
+                        layout.html injects it as the last stylesheet via a link tag
+     • One event      : set the event's custom_css (admin / API)
+                        dribdat renders it into a style#custom_css block
 
    Every selector below was confirmed against the dribdat templates + style.css
    (commit a679b85). dribdat loads a Bootswatch theme first; this file overrides
@@ -77,7 +77,7 @@ code, pre { background:var(--em-grey-50); color:var(--em-grey-700); border-radiu
 
 /* ---------------------------------------------------------------------------
    3. NAVBAR  (nav.navbar.navbar-light, becomes .navbar-dark in dark mode)
-   The brand <span> is already font-size:0 in dribdat; the three FA icons
+   The brand label is already font-size:0 in dribdat; the three FA icons
    (thumbs/lightbulb/thumbs) are the default "logo". We hide them and drop the
    EventMobi lockup in as a background image.
    --------------------------------------------------------------------------- */
