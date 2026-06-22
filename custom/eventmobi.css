@@ -102,7 +102,7 @@ nav.navbar .nav-link:hover i.fa { color:var(--em-gold) !important; }
 /* Brand logo swap */
 nav.navbar .navbar-brand {                          /* asset */
   width:150px; height:34px; border-radius:0; overflow:hidden;
-  background:url('https://YOUR-HOST/em-logo-white-letters.png') left center / contain no-repeat;
+  background:url('https://github.com/thorbengrosser/dribdat/blob/main/custom/EMI-logo-colour-white-letters.png?raw=true') left center / contain no-repeat;
 }
 nav.navbar .navbar-brand i { display:none !important; }   /* hide FA mark */
 nav.navbar .navbar-brand span { display:none !important; }
