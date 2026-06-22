@@ -13,8 +13,8 @@
    Every selector below was confirmed against the dribdat templates + style.css
    (commit a679b85). dribdat loads a Bootswatch theme first; this file overrides
    it, so a few rules use !important to win the cascade. Search markers:
-        /* tune */   = a value you may want to adjust to taste
-        /* asset */  = needs a hosted image URL
+        [tune]    = a value you may want to adjust to taste
+        [asset]   = needs a hosted image URL
 
    DARK MODE
      dribdat's footer toggle (a.darkmode) runs setDarkMode() in script.js which:
