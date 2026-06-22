@@ -1,0 +1,64 @@
+---
+# Build Loop — stage rules for the EventMobi AI hackathon
+# Simplified from the dribdat default: four stages mapped to our three-week flow.
+
+stages:
+  - id: 0
+    name: IDEA
+    phase: Week 1 · Ideas
+    description: Post something you'd love to build that moves a MEPA goal.
+    tip: Write a clear pitch so others can rally around your idea.
+    emoji: 💡
+    conditions:
+      validate:
+        - field: summary
+          min: 5
+          help: Give your idea a short, clear one-line title.
+        - field: excerpt
+          min: 80
+          help: A few sentences in the Pitch — the problem, who it's for, and what you'd build.
+      agree:
+        - This idea moves a MEPA goal — More Product, more Events, or more Admins.
+        - It's small enough to build in about 8 hours.
+  - id: 15
+    name: TEAM
+    phase: Week 2 · Teams
+    description: Gather 1–3 people around the idea.
+    tip: Make sure at least one of you can actually build something.
+    emoji: 👥
+    conditions:
+      validate:
+        - field: team
+          min: 1
+          max: 3
+          help: Build Loop teams are 1 to 3 people.
+      agree:
+        - At least one of us can build (Claude Code, Lovable, Zapier, n8n, or similar).
+        - We've agreed how we'll work together across our time zones.
+  - id: 35
+    name: BUILD
+    phase: Week 3 · Build
+    description: Make a working prototype — AI or automation, whatever fits.
+    tip: Drop a link to whatever you've got and keep it visible as it grows.
+    emoji: 🔨
+    conditions:
+      validate:
+        - field: webpage_url
+          test: validurl
+          help: Link your build in Project Link — a live demo, repo, Loom, or screenshots all count.
+      agree:
+        - What we've built actually runs — it's a working prototype, not slides.
+  - id: 50
+    name: DEMO
+    phase: Week 3 · Demo Day
+    description: Show it off and log it so nothing is lost.
+    tip: Record a 2-minute demo. Win or not, your work lands in the AI Initiatives library.
+    emoji: 🚀
+    conditions:
+      validate:
+        - field: download_url
+          test: validurl
+          help: Link your 2-minute demo video (or final deliverable) in the Download field.
+      agree:
+        - We've recorded a short demo of what we built.
+        - The project is logged so the code and learnings are kept.
